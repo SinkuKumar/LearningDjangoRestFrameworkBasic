@@ -3,7 +3,7 @@
 ## Getting Started
 
 1. **Create and activate a virtual environment:**  
-    - `python3 -m venv venv`
+    - `python -m venv venv`
     - `venv\Scripts\activate`
 2. **Install Django:**  
     - `pip install django`
@@ -23,12 +23,6 @@
 7. **Create a new Django serializer:**
     - Define the serializer in the `serializers.py` file.
 8. **Create a new Django view:**
-    - Define the view in the `views.py` file.
+    - Define the view in the `api_views.py` file.
 9.  **Create a new Django URL pattern:**
-    - Define the URL pattern in the `urls.py` file.
-10. **Create a new Django template:**
-11. **Create a new Django form:**
-12. **Create a new Django admin:**
-13. **Create a new Django migration:**
-14. **Create a new Django superuser:**
-15. **Run the Django development server:**
+    - Define the URL pattern in the `api_urls.py` file.
