@@ -7,7 +7,7 @@
     - `venv\Scripts\activate`
 2. **Install Django:**  
     - `pip install django`
-3. **Install Django REST framework:**  
+3. **Install Django REST framework:**
     - `pip install djangorestframework`
 4. **Create a new Django project:**
     - `django-admin startproject PersonalPortfolio`
