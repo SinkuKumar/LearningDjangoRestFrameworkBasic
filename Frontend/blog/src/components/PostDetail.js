@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { BlogContext } from "../context/BlogContext";
 
 const PostDetail = () => {
   const { id } = useParams();
-  const [post, setPost] = useState(null);
+  const { posts, loading } = useContext(BlogContext);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/blogs/${id}/?format=json`)
-      .then((response) => setPost(response.data))
-      .catch((error) => console.error(error));
-  }, [id]);
+  if (loading) return <div>Loading...</div>;
 
-  if (!post) return <div>Loading...</div>;
+  const post = posts.find((post) => post.id === parseInt(id));
+
+  if (!post) return <div>Post not found</div>;
 
   return (
     <div>

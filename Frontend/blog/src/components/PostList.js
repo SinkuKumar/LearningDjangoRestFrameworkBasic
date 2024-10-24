@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext } from "react";
+import { BlogContext } from "../context/BlogContext";
 import { Link } from "react-router-dom";
 
 const PostList = () => {
-  const [posts, setPosts] = useState([]);
+  const { posts, loading } = useContext(BlogContext);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/blogs/?format=json")
-      .then((response) => setPosts(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div>
       <h1>Blog Posts</h1>
+      {console.log(posts)}
       <ul>
-        {console.log(posts)}
         {posts.map((post) => (
           <li key={post.id}>
-            <Link to={`/blogs/${post.id}?format=json`}>{post.title}</Link>
+            <Link to={`/posts/${post.id}`}>{post.title}</Link>
           </li>
         ))}
       </ul>
